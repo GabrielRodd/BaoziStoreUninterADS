@@ -1,4 +1,6 @@
 package dev.gabrielrodd.BaoziStoreUninterADS.produto;
 
-public interface ProdutoRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ProdutoRepository extends JpaRepository<ProdutoModel, Long> {
 }
