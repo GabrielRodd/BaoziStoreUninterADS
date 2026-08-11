@@ -41,8 +41,7 @@ public class ProdutoService {
     public ProdutoModel editar(Long id, ProdutoModel produtoEditado) {
         if (produtoRepository.existsById(id)) {
             produtoEditado.setId(id);
-            produtoRepository.save(produtoEditado);
-            return produtoEditado;
+            return produtoRepository.save(produtoEditado);
         }else{
             return null;
         }
