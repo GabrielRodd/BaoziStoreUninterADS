@@ -1,5 +1,7 @@
 package dev.gabrielrodd.BaoziStoreUninterADS.pedido;
 
+import dev.gabrielrodd.BaoziStoreUninterADS.cliente.ClienteModel;
+import dev.gabrielrodd.BaoziStoreUninterADS.produto.ProdutoModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -14,9 +16,13 @@ public class PedidoModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long clienteId;
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private ClienteModel cliente;
 
-    private Long produtoId;
+    @ManyToOne
+    @JoinColumn(name = "produto_id")
+    private ProdutoModel produto;
 
     private Integer quantidade;
 
@@ -28,20 +34,20 @@ public class PedidoModel {
         this.id = id;
     }
 
-    public Long getClienteId() {
-        return clienteId;
+    public ClienteModel getCliente() {
+        return cliente;
     }
 
-    public void setClienteId(Long clienteId) {
-        this.clienteId = clienteId;
+    public void setCliente(ClienteModel cliente) {
+        this.cliente = cliente;
     }
 
-    public Long getProdutoId() {
-        return produtoId;
+    public ProdutoModel getProduto() {
+        return produto;
     }
 
-    public void setProdutoId(Long produtoId) {
-        this.produtoId = produtoId;
+    public void setProduto(ProdutoModel produto) {
+        this.produto = produto;
     }
 
     public Integer getQuantidade() {
